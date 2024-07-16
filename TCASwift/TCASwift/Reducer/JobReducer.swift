@@ -6,5 +6,17 @@
 //
 
 import AppData
+import ComposableArchitecture
 import Foundation
 
+@Reducer
+struct JobReducer {
+    @ObservableState
+    struct State {
+        var jobs: [JobAd] = []
+    }
+
+    enum Action {
+        case jobsFetched([JobAd])
+    }
+}
