@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+public struct Earning: Codable {
+    let currency: Currency
+    let amount: Double
+
+}
