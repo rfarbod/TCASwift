@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,9 +11,9 @@
 		13BCED752C454BEF008AEB15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BCED742C454BEF008AEB15 /* ContentView.swift */; };
 		13BCED772C454BF1008AEB15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BCED762C454BF1008AEB15 /* Assets.xcassets */; };
 		13BCED7B2C454BF1008AEB15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */; };
-		13BCED892C469F95008AEB15 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BCED882C469F95008AEB15 /* Job.swift */; };
 		13BCEDB82C46CBD9008AEB15 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 13BCEDB72C46CBD9008AEB15 /* ComposableArchitecture */; };
 		13BCEDBB2C46CC28008AEB15 /* JobReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BCEDBA2C46CC28008AEB15 /* JobReducer.swift */; };
+		13BCEDBD2C46CEA7008AEB15 /* AppData in Frameworks */ = {isa = PBXBuildFile; productRef = 13BCEDBC2C46CEA7008AEB15 /* AppData */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,6 @@
 		13BCED762C454BF1008AEB15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13BCED782C454BF1008AEB15 /* TCASwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TCASwift.entitlements; sourceTree = "<group>"; };
 		13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		13BCED882C469F95008AEB15 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		13BCEDBA2C46CC28008AEB15 /* JobReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -32,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13BCEDBD2C46CEA7008AEB15 /* AppData in Frameworks */,
 				13BCEDB82C46CBD9008AEB15 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				13BCEDB92C46CC18008AEB15 /* Reducer */,
-				13BCED872C469F8A008AEB15 /* Entities */,
 				13BCED722C454BEF008AEB15 /* TCASwiftApp.swift */,
 				13BCED742C454BEF008AEB15 /* ContentView.swift */,
 				13BCED762C454BF1008AEB15 /* Assets.xcassets */,
@@ -75,14 +74,6 @@
 				13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		13BCED872C469F8A008AEB15 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				13BCED882C469F95008AEB15 /* Job.swift */,
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		13BCEDB92C46CC18008AEB15 /* Reducer */ = {
@@ -111,6 +102,7 @@
 			name = TCASwift;
 			packageProductDependencies = (
 				13BCEDB72C46CBD9008AEB15 /* ComposableArchitecture */,
+				13BCEDBC2C46CEA7008AEB15 /* AppData */,
 			);
 			productName = TCASwift;
 			productReference = 13BCED6F2C454BEF008AEB15 /* TCASwift.app */;
@@ -142,6 +134,7 @@
 			mainGroup = 13BCED662C454BEF008AEB15;
 			packageReferences = (
 				13BCEDB62C46CBD9008AEB15 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				13BCEDBE2C46CF38008AEB15 /* XCLocalSwiftPackageReference "Packages/AppData" */,
 			);
 			productRefGroup = 13BCED702C454BEF008AEB15 /* Products */;
 			projectDirPath = "";
@@ -172,7 +165,6 @@
 				13BCEDBB2C46CC28008AEB15 /* JobReducer.swift in Sources */,
 				13BCED752C454BEF008AEB15 /* ContentView.swift in Sources */,
 				13BCED732C454BEF008AEB15 /* TCASwiftApp.swift in Sources */,
-				13BCED892C469F95008AEB15 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +308,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
@@ -324,10 +316,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.farbod.tca.tcaswift.TCASwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -354,7 +347,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
@@ -362,10 +355,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.farbod.tca.tcaswift.TCASwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -392,6 +386,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		13BCEDBE2C46CF38008AEB15 /* XCLocalSwiftPackageReference "Packages/AppData" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppData;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		13BCEDB62C46CBD9008AEB15 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -408,6 +409,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13BCEDB62C46CBD9008AEB15 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		13BCEDBC2C46CEA7008AEB15 /* AppData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13BCEDB62C46CBD9008AEB15 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = AppData;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
