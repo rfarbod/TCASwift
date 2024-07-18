@@ -13,8 +13,7 @@ let package = Package(
             targets: ["AppUI"]),
     ],
     dependencies: [
-        .package(path: "../../AppData"),
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.1.2"),
+        .package(path: "../../AppFoundation"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,8 +21,7 @@ let package = Package(
         .target(
             name: "AppUI",
             dependencies: [
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-                "AppData"
+                "AppFoundation"
             ]
         ),
         .testTarget(

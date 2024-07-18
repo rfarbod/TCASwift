@@ -12,7 +12,6 @@
 		13BCED772C454BF1008AEB15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BCED762C454BF1008AEB15 /* Assets.xcassets */; };
 		13BCED7B2C454BF1008AEB15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */; };
 		13BCEDB82C46CBD9008AEB15 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 13BCEDB72C46CBD9008AEB15 /* ComposableArchitecture */; };
-		13BCEDBB2C46CC28008AEB15 /* JobReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BCEDBA2C46CC28008AEB15 /* JobReducer.swift */; };
 		13BCEDBD2C46CEA7008AEB15 /* AppData in Frameworks */ = {isa = PBXBuildFile; productRef = 13BCEDBC2C46CEA7008AEB15 /* AppData */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +22,6 @@
 		13BCED762C454BF1008AEB15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13BCED782C454BF1008AEB15 /* TCASwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TCASwift.entitlements; sourceTree = "<group>"; };
 		13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		13BCEDBA2C46CC28008AEB15 /* JobReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +56,6 @@
 		13BCED712C454BEF008AEB15 /* TCASwift */ = {
 			isa = PBXGroup;
 			children = (
-				13BCEDB92C46CC18008AEB15 /* Reducer */,
 				13BCED722C454BEF008AEB15 /* TCASwiftApp.swift */,
 				13BCED742C454BEF008AEB15 /* ContentView.swift */,
 				13BCED762C454BF1008AEB15 /* Assets.xcassets */,
@@ -74,14 +71,6 @@
 				13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		13BCEDB92C46CC18008AEB15 /* Reducer */ = {
-			isa = PBXGroup;
-			children = (
-				13BCEDBA2C46CC28008AEB15 /* JobReducer.swift */,
-			);
-			path = Reducer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +151,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13BCEDBB2C46CC28008AEB15 /* JobReducer.swift in Sources */,
 				13BCED752C454BEF008AEB15 /* ContentView.swift in Sources */,
 				13BCED732C454BEF008AEB15 /* TCASwiftApp.swift in Sources */,
 			);

@@ -9,40 +9,30 @@ import Foundation
 
 public struct JobAd: Codable {
     public let id: String
-    public let stauts: String
-    public let startsAt: Date
+    public let startAt: Date
     public let endsAt: Date
-    public let duration: Int
-    public let tempersNeeded: Int
-    public let enableAUtoAcceptRecentFreelancers: Bool
-    public let cancellationPolicy: Int
-    public let archivedAt: Date?
-    public let createdAt: Date
-    public let earningsPerHour: Currency
+    public let earningsPerHour: Earning
+    public let job: Job
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case startAt = "start_at"
+        case endsAt = "ends_at"
+        case earningsPerHour = "earnings_per_hour"
+        case job
+    }
 
     public init(
         id: String,
-        stauts: String,
-        startsAt: Date,
+        startAt: Date,
         endsAt: Date,
-        duration: Int,
-        tempersNeeded: Int,
-        enableAUtoAcceptRecentFreelancers: Bool,
-        cancellationPolicy: Int,
-        archivedAt: Date?,
-        createdAt: Date,
-        earningsPerHour: Currency
+        earningsPerHour: Earning,
+        job: Job
     ) {
         self.id = id
-        self.stauts = stauts
-        self.startsAt = startsAt
+        self.startAt = startAt
         self.endsAt = endsAt
-        self.duration = duration
-        self.tempersNeeded = tempersNeeded
-        self.enableAUtoAcceptRecentFreelancers = enableAUtoAcceptRecentFreelancers
-        self.cancellationPolicy = cancellationPolicy
-        self.archivedAt = archivedAt
-        self.createdAt = createdAt
         self.earningsPerHour = earningsPerHour
+        self.job = job
     }
 }
