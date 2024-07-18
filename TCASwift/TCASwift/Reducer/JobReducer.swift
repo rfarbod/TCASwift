@@ -19,4 +19,16 @@ struct JobReducer {
     enum Action {
         case jobsFetched([JobAd])
     }
+
+    var body: some Reducer<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case let .jobsFetched(jobs):
+                break
+
+            default:
+                break
+            }
+        }
+    }
 }
