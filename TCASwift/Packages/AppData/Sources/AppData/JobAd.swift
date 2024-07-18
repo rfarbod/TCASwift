@@ -7,12 +7,20 @@
 
 import Foundation
 
-public struct JobAd: Codable {
+public struct JobAd: Codable, Identifiable {
     public let id: String
     public let startAt: Date
     public let endsAt: Date
     public let earningsPerHour: Earning
     public let job: Job
+
+    private var isOpen: Bool {
+        return endsAt > .now
+    }
+
+    public var statusText: String {
+        return isOpen ? "SERVING" : "CLOSED"
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
