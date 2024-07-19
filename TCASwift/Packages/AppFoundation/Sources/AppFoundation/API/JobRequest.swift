@@ -8,7 +8,7 @@
 import Foundation
 
 enum JobRequest {
-    case fetchAds(date: Date)
+    case fetchAds(date: String)
 }
 
 extension JobRequest: RequestProtocol {
@@ -22,7 +22,7 @@ extension JobRequest: RequestProtocol {
     var parameters: RequestParameters? {
         switch self {
         case let .fetchAds(date):
-            return ["date" : date]
+            return ["filter[date]" : date]
         }
     }
 }

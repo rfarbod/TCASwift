@@ -50,8 +50,8 @@ struct JobAdView: View {
 #Preview {
     JobAdView(jobAd: .init(
         id: "",
-        startAt: Date(),
-        endsAt: Date(),
+        startAt: "Date()",
+        endsAt: "Date()",
         earningsPerHour: .init(currency: Currency.euro, amount: 20),
         job: .init(
             id: "",

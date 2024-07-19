@@ -12,6 +12,10 @@ import SwiftUI
 public struct JobAdsView: View {
     let store: StoreOf<JobReducer>
 
+    public init(store: StoreOf<JobReducer>) {
+        self.store = store
+    }
+
     public var body: some View {
         VStack {
             List {

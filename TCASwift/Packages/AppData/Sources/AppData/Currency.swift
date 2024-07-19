@@ -10,4 +10,5 @@ import Foundation
 public enum Currency: String, Codable {
     case euro = "EUR"
     case dollars = "USD"
+    case pond = "GBP"
 }

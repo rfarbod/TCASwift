@@ -22,7 +22,6 @@ protocol RequestProtocol {
     var path: String { get }
     var method: RequestMethod { get }
     var parameters: RequestParameters? { get }
-    var authorizationToken: String { get }
     var timeoutInterval: TimeInterval { get }
     var retryDelay: UInt64 { get }
 }
@@ -32,7 +31,6 @@ extension RequestProtocol {
     var method: RequestMethod { .get }
     var requestType: RequestType { .data }
     var responseType: ResponseType { .json }
-    var authorizationToken: String { "Bearer" }
     var timeoutInterval: TimeInterval { 30.0 }
     var retryDelay: UInt64 { 1_000_000_000 }
 
@@ -61,7 +59,6 @@ extension RequestProtocol {
         }
         var request = URLRequest(url: url, timeoutInterval: timeoutInterval)
         request.httpMethod = method.rawValue
-        request.setValue(authorizationToken, forHTTPHeaderField: "Authorization")
         return request
     }
 

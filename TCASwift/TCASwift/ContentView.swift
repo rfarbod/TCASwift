@@ -5,19 +5,20 @@
 //  Created by Farbod Rahiminik on 7/15/24.
 //
 
+import AppFoundation
+import AppUI
+import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
+    let store: StoreOf<JobReducer>
+
     var body: some View {
         VStack {
-            List {
-                ForEach()
-            }
+            JobAdsView(store: store)
         }
-        .padding()
+        .onAppear {
+            store.send(.viewDidLoad)
+        }
     }
-}
-
-#Preview {
-    ContentView()
 }

@@ -23,6 +23,7 @@ public class NetworkManager: NetworkManagerProtocol {
         guard let apiRequest = api.urlRequest() else {
             throw APIError.badRequest
         }
+
         for retryIndex in 0 ..< retryCount {
             try Task.checkCancellation()
             do {

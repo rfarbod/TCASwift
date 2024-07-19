@@ -6,6 +6,7 @@
 //
 
 import AppData
+import Foundation
 import ComposableArchitecture
 
 @Reducer
@@ -13,6 +14,8 @@ public struct JobReducer {
     @ObservableState
     public struct State {
         public var jobAds: [JobAd] = []
+
+        public init() {}
     }
 
     public enum Action {
@@ -25,7 +28,7 @@ public struct JobReducer {
             switch action {
             case .viewDidLoad:
                 return .run { send in
-                    let data = try await JobAdAPI().fetchJobAds(date: .now)
+                    let data = try await JobAdAPI().fetchJobAds(date: DateFormatter.iso8601DateFormatter.string(from: .now))
 
                     await send(.jobsRecieved(data.data))
                 }
@@ -36,4 +39,6 @@ public struct JobReducer {
             }
         }
     }
+
+    public init() {}
 }

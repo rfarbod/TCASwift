@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "AppData", path: "../AppData"),
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.1.2"),
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.11.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
