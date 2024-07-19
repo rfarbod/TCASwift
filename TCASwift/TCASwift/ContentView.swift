@@ -18,7 +18,7 @@ struct ContentView: View {
             JobAdsView(store: store)
         }
         .onAppear {
-            store.send(.viewDidLoad)
+            store.send(.getJobs)
         }
     }
 }

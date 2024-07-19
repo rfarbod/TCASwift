@@ -21,12 +21,13 @@ struct JobAdView: View {
     var body: some View {
         VStack(spacing: Constants.spacing) {
             WebImage(url: URL(string: jobAd.job.project.client.links.heroImage)) { image in
-                image.resizable()
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
             } placeholder: {
                 Rectangle().foregroundColor(.gray)
             }
             .indicator(.activity)
-            .frame(height: Constants.imageHeight)
 
             HStack {
                 Text(jobAd.statusText)
@@ -45,25 +46,4 @@ struct JobAdView: View {
             }
         }
     }
-}
-
-#Preview {
-    JobAdView(jobAd: .init(
-        id: "",
-        startAt: "Date()",
-        endsAt: "Date()",
-        earningsPerHour: .init(currency: Currency.euro, amount: 20),
-        job: .init(
-            id: "",
-            reportAtAddress: .init(geo: .init(lat: 0, lon: 0)),
-            project: .init(
-                id: "",
-                name: "Job",
-                client: .init(
-                    id: "",
-                    links: .init(heroImage: "", thumbImage: "")
-                )
-            )
-        )
-    ))
 }

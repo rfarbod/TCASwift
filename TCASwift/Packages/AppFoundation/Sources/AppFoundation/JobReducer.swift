@@ -14,27 +14,39 @@ public struct JobReducer {
     @ObservableState
     public struct State {
         public var jobAds: [JobAd] = []
+        public var date: Date = .now
 
         public init() {}
     }
 
     public enum Action {
-        case viewDidLoad
-        case jobsRecieved([JobAd])
+        case getJobs
+        case goToPreviousDate
+        case jobsRecieved(jobs: [JobAd])
     }
 
     public var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .viewDidLoad:
-                return .run { send in
-                    let data = try await JobAdAPI().fetchJobAds(date: DateFormatter.iso8601DateFormatter.string(from: .now))
-
-                    await send(.jobsRecieved(data.data))
+            case .getJobs:
+                return .run { [date = state.date, jobAds = state.jobAds] send in
+                    let formattedDate = DateFormatter.iso8601DateFormatter.string(from: date)
+                    let jobs = try await JobAdAPI().fetchJobAds(date: formattedDate)
+                    await send(.jobsRecieved(jobs: jobs.data))
                 }
 
+            case .goToPreviousDate:
+                guard let previousDate = Calendar.current.date(
+                    byAdding: .day,
+                    value: -1,
+                    to: state.date
+                ) else { return .none }
+
+                state.date = previousDate
+                return .none
+
             case let .jobsRecieved(jobAds):
-                state.jobAds = jobAds
+                state.jobAds.append(contentsOf: jobAds)
                 return .none
             }
         }
