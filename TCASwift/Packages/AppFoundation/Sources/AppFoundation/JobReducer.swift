@@ -12,11 +12,18 @@ import ComposableArchitecture
 @Reducer
 public struct JobReducer {
     @ObservableState
-    public struct State {
+    public struct State: Equatable {
         public var jobAds: [JobAd] = []
         public var date: Date = .now
 
-        public init() {}
+        public init(jobAds: [JobAd], date: Date) {
+            self.jobAds = jobAds
+            self.date = date
+        }
+
+        public static func == (lhs: JobReducer.State, rhs: JobReducer.State) -> Bool {
+            lhs.date == rhs.date && lhs.jobAds == rhs.jobAds
+        }
     }
 
     public enum Action {
@@ -29,9 +36,9 @@ public struct JobReducer {
         Reduce { state, action in
             switch action {
             case .getJobs:
-                return .run { [date = state.date, jobAds = state.jobAds] send in
+                return .run { [date = state.date] send in
                     let formattedDate = DateFormatter.iso8601DateFormatter.string(from: date)
-                    let jobs = try await JobAdAPI().fetchJobAds(date: formattedDate)
+                    let jobs = try await JobAdAPI.fetchJobAds(date: formattedDate)
                     await send(.jobsRecieved(jobs: jobs.data))
                 }
 
@@ -42,11 +49,11 @@ public struct JobReducer {
                     to: state.date
                 ) else { return .none }
 
-                state.date = previousDate
+                state.date = Calendar.current.startOfDay(for: previousDate)
                 return .none
 
             case let .jobsRecieved(jobAds):
-                state.jobAds.append(contentsOf: jobAds)
+                state.jobAds += jobAds
                 return .none
             }
         }

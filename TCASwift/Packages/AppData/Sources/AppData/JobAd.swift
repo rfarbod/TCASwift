@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct JobAd: Codable, Identifiable {
+public struct JobAd: Codable, Identifiable, Equatable {
     public let id: String
     public let startAt: String
     public let endsAt: String
@@ -42,5 +42,9 @@ public struct JobAd: Codable, Identifiable {
         self.endsAt = endsAt
         self.earningsPerHour = earningsPerHour
         self.job = job
+    }
+
+    public static func == (lhs: JobAd, rhs: JobAd) -> Bool {
+        lhs.id == rhs.id
     }
 }
