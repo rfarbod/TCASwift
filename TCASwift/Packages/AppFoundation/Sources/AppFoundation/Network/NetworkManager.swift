@@ -11,14 +11,15 @@ protocol NetworkManagerProtocol {
     func request(api: RequestProtocol, retryCount: Int) async throws -> (Data, URLResponse)
 }
 
-class NetworkManager: NetworkManagerProtocol {
+public class NetworkManager: NetworkManagerProtocol {
     static let shared = NetworkManager()
     let urlSession: URLSession
+
     private init(config: URLSessionConfiguration = .default) {
         self.urlSession = URLSession(configuration: config)
     }
 
-    func request(api: RequestProtocol, retryCount: Int) async throws -> (Data, URLResponse) {
+    func request(api: RequestProtocol, retryCount: Int = 5) async throws -> (Data, URLResponse) {
         guard let apiRequest = api.urlRequest() else {
             throw APIError.badRequest
         }
