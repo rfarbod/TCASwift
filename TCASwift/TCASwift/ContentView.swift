@@ -27,29 +27,65 @@ struct ContentView: View {
                         store.send(.getJobs)
                     }
 
-                    HStack {
-                        NavigationLink(destination: SignInView(), isActive: $isShowingSignIn) {
-                           HeliButton(
-                            action: {
-                                isShowingSignIn = true
-                            },
-                            backgroundColor: Color.green,
-                            text: "Sign In"
-                           )
-                        }
+                    VStack {
+                        HStack {
+                            Button(
+                                action: {
 
-                        NavigationLink(destination: SignUpView(), isActive: $isShowinSignUp) {
-                            HeliButton(
-                             action: {
-                                 isShowinSignUp = true
-                             },
-                             backgroundColor: Color.white,
-                             text: "Sign Up"
+                                },
+                                label: {
+                                    Text("Filter")
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                }
+                            )
+
+                            RoundedRectangle(cornerRadius: 0)
+                                .frame(width: 1, height: 50)
+                                .background(Color.black)
+
+                            Button(
+                                action: {
+
+                                },
+                                label: {
+                                    Text("Kaart")
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                }
                             )
                         }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color.black, lineWidth: 1)
+                                .cornerRadius(15, corners: [.allCorners])
+                        )
+                        .background(Color.white)
+                        .cornerRadius(15, corners: [.allCorners])
+                        .frame(width: 150, height: 50)
+
+                        HStack {
+                            NavigationLink(destination: SignInView(), isActive: $isShowingSignIn) {
+                                HeliButton(
+                                    action: {
+                                        isShowingSignIn = true
+                                    },
+                                    backgroundColor: Color.green,
+                                    text: "Sign In"
+                                )
+                            }
+
+                            NavigationLink(destination: SignUpView(), isActive: $isShowinSignUp) {
+                                HeliButton(
+                                    action: {
+                                        isShowinSignUp = true
+                                    },
+                                    backgroundColor: Color.white,
+                                    text: "Sign Up"
+                                )
+                            }
+                        }
+                        .background(Color.white)
+                        .frame(height: 75)
                     }
-                    .background(Color.white)
-                    .frame(height: 75)
                 }
             }
         }
