@@ -54,9 +54,7 @@ public struct JobReducer {
                 ) else { return .none }
 
                 state.date = Calendar.current.startOfDay(for: previousDate)
-                return .run { send in
-                    await send(.getJobs)
-                }
+                return .none
 
             case let .jobsRecieved(jobAds):
                 state.jobAds.append(contentsOf: jobAds)

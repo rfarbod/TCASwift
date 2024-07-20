@@ -18,7 +18,7 @@ final class AppFoundationTests: XCTestCase {
             guard var yesterdayDate = Calendar.current.date(byAdding: .day, value: -1, to: Date()) else { return }
             yesterdayDate = Calendar.current.startOfDay(for: yesterdayDate)
 
-            $0.date = Date()
+            $0.date = yesterdayDate
         }
     }
 
