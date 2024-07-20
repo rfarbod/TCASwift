@@ -6,42 +6,60 @@
 //
 
 import AppData
+import ComposableArchitecture
 import SDWebImageSwiftUI
 import SwiftUI
 
 struct JobAdView: View {
     private enum Constants {
-        static let padding: CGFloat = 25
+        static let padding: CGFloat = 15
         static let spacing: CGFloat = 20
-        static let imageHeight: CGFloat = 300
     }
 
-    let jobAd: JobAd
+    let jobAd: JobAdDTO
 
     var body: some View {
-        VStack(spacing: Constants.spacing) {
-            WebImage(url: URL(string: jobAd.job.project.client.links.heroImage)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                Rectangle().foregroundColor(.gray)
-            }
-            .indicator(.activity)
+        WithPerceptionTracking {
+            VStack(spacing: Constants.spacing) {
+                ZStack(alignment: .bottomTrailing) {
+                    WebImage(url: URL(string: jobAd.job.project.client.links.heroImage)) { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        RoundedRectangle(cornerRadius: 20).foregroundColor(.gray)
+                    }
+                    .indicator(.activity)
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    
+                    Text("\(jobAd.earningsPerHour.amount) \(jobAd.earningsPerHour.currency)")
+                        .font(.system(size: 14, weight: .medium))
+                        .padding(Constants.padding)
+                        .background(Color.white)
+                }
 
-            HStack {
-                Text(jobAd.statusText)
-                    .padding(.horizontal, Constants.padding)
-                Spacer()
-                Text("\(jobAd.earningsPerHour.amount) \(jobAd.earningsPerHour.currency)")
-                    .font(.system(size: 14, weight: .medium))
-                    .padding(.horizontal, Constants.padding)
-            }
+                HStack {
+                    Text(jobAd.statusText)
+                        .padding(.horizontal, Constants.padding)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundStyle(jobAd.isOpen ? Color.green : Color.red)
+                    Spacer()
+                }
 
-            HStack {
-                Text(jobAd.job.project.name)
-                    .font(.system(size: 20, weight: .bold))
-                    .padding(.horizontal, Constants.padding)
+                HStack {
+                    Text(jobAd.job.project.name)
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(.horizontal, Constants.padding)
+                    Spacer()
+                }
+
+                HStack {
+                    Text(jobAd.startHour)
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(.horizontal, Constants.padding)
+                    Spacer()
+                }
+
                 Spacer()
             }
         }

@@ -13,10 +13,10 @@ import ComposableArchitecture
 public struct JobReducer {
     @ObservableState
     public struct State: Equatable {
-        public var jobAds: [JobAd] = []
+        public var jobAds: [JobAdDTO] = []
         public var date: Date = .now
 
-        public init(jobAds: [JobAd], date: Date) {
+        public init(jobAds: [JobAdDTO], date: Date) {
             self.jobAds = jobAds
             self.date = date
         }
@@ -29,7 +29,7 @@ public struct JobReducer {
     public enum Action {
         case getJobs
         case goToPreviousDate
-        case jobsRecieved(jobs: [JobAd])
+        case jobsRecieved(jobs: [JobAdDTO])
     }
 
     public var body: some Reducer<State, Action> {
@@ -38,7 +38,10 @@ public struct JobReducer {
             case .getJobs:
                 return .run { [date = state.date] send in
                     let formattedDate = DateFormatter.iso8601DateFormatter.string(from: date)
-                    let jobs = try await JobAdAPI.fetchJobAds(date: formattedDate)
+                    let jobsDTO = try await JobAdAPI.fetchJobAds(date: formattedDate)
+                    let jobs: JobAd = jobsDTO.data.map { dto in
+                        JobAd(
+                    }
                     await send(.jobsRecieved(jobs: jobs.data))
                 }
 
@@ -53,7 +56,7 @@ public struct JobReducer {
                 return .none
 
             case let .jobsRecieved(jobAds):
-                state.jobAds += jobAds
+                state.jobAds.append(contentsOf: jobAds)
                 return .none
             }
         }

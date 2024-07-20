@@ -14,7 +14,7 @@ enum JobRequest {
 extension JobRequest: RequestProtocol {
     var path: String {
         switch self {
-        case .fetchAds(let _):
+        case .fetchAds(_):
             return "shifts"
         }
     }

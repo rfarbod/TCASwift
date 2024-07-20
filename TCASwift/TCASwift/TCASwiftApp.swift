@@ -13,11 +13,13 @@ import SwiftUI
 struct TCASwiftApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(
-                store: Store(initialState: JobReducer.State()) {
-                    JobReducer()
-                }
-            )
+            WithPerceptionTracking {
+                ContentView(
+                    store: Store(initialState: JobReducer.State(jobAds: [], date: .now)) {
+                        JobReducer()
+                    }
+                )
+            }
         }
     }
 }

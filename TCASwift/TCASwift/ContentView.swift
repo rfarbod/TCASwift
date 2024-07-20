@@ -14,11 +14,13 @@ struct ContentView: View {
     let store: StoreOf<JobReducer>
 
     var body: some View {
-        VStack {
-            JobAdsView(store: store)
-        }
-        .onAppear {
-            store.send(.getJobs)
+        WithPerceptionTracking {
+            VStack {
+                JobAdsView(store: store)
+            }
+            .onAppear {
+                store.send(.getJobs)
+            }
         }
     }
 }

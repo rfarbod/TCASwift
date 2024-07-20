@@ -9,5 +9,5 @@ import AppData
 import Foundation
 
 struct JobResponse: Codable {
-    let data: [JobAd]
+    let data: [JobAdDTO]
 }

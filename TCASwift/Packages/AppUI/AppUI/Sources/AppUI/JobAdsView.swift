@@ -17,17 +17,23 @@ public struct JobAdsView: View {
     }
 
     public var body: some View {
-        VStack {
-            List(store.jobAds.indices, id: \.self) { index in
-                JobAdView(jobAd: store.jobAds[index])
-                    .onAppear {
-                        if index == store.jobAds.count - 1 {
-                            store.send(.goToPreviousDate)
-                            store.send(.getJobs)
-                        }
+        WithPerceptionTracking {
+            VStack {
+                List(store.jobAds.indices, id: \.self) { index in
+                    WithPerceptionTracking {
+                        JobAdView(jobAd: store.jobAds[index])
+                            .onAppear {
+                                if index == store.jobAds.count - 1 {
+                                    store.send(.goToPreviousDate)
+                                    store.send(.getJobs)
+                                }
+                            }
+                            .background(Color.white)
                     }
+                }
+                .padding(.horizontal, 10)
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
         }
     }
 }
