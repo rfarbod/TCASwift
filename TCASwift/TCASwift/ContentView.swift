@@ -29,42 +29,23 @@ struct ContentView: View {
 
                     HStack {
                         NavigationLink(destination: SignInView(), isActive: $isShowingSignIn) {
-                            Button(
-                                action: {
-                                    isShowingSignIn = true
-                                },
-                                label: {
-                                    Text("Sign In")
-                                        .font(.system(size: 15, weight: .bold))
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .stroke(Color.black, lineWidth: 1)
-                                        )
-                                }
-                            )
-                            .background(Color.green)
-                            .cornerRadius(15)
-                            .padding(10)
+                           HeliButton(
+                            action: {
+                                isShowingSignIn = true
+                            },
+                            backgroundColor: Color.green,
+                            text: "Sign In"
+                           )
                         }
 
                         NavigationLink(destination: SignUpView(), isActive: $isShowinSignUp) {
-                            Button(
-                                action: {
-                                    isShowinSignUp = true
-                                },
-                                label: {
-                                    Text("Sign Up")
-                                        .font(.system(size: 15, weight: .bold))
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .stroke(Color.black, lineWidth: 1)
-                                        )
-                                }
+                            HeliButton(
+                             action: {
+                                 isShowinSignUp = true
+                             },
+                             backgroundColor: Color.white,
+                             text: "Sign Up"
                             )
-                            .background(Color.white)
-                            .padding(10)
                         }
                     }
                     .background(Color.white)
