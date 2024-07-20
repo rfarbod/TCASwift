@@ -11,6 +11,12 @@ import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
+
+    private enum Constant {
+        static let filterImageName = "line.3.horizontal.decrease.circle"
+        static let mapImageName = "map.circle"
+    }
+
     let store: StoreOf<JobReducer>
 
     @State private var isShowingSignIn = false
@@ -30,39 +36,40 @@ struct ContentView: View {
                     }
 
                     VStack {
-                        HStack {
+                        HStack(alignment: .center) {
                             Button(
                                 action: {
                                     isShowingFilter = true
                                 },
                                 label: {
-                                    Text("Filter")
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    (Text(Image(systemName: Constant.filterImageName)) + Text(" Filter"))
+                                        .foregroundStyle(.gray)
+                                        .cornerRadius(25, corners: [.topLeft, .bottomLeft])
                                 }
                             )
 
                             RoundedRectangle(cornerRadius: 0)
-                                .frame(width: 1, height: 50)
-                                .background(Color.black)
+                                .frame(width: 1, height: 45)
+                                .background(.gray)
 
                             Button(
                                 action: {
                                     isShowingKart = true
                                 },
                                 label: {
-                                    Text("Kaart")
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    (Text(Image(systemName: Constant.mapImageName)) + Text(" Kaart"))
+                                        .foregroundStyle(.gray)
+                                        .cornerRadius(25, corners: [.topRight, .bottomRight])
                                 }
                             )
                         }
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.black, lineWidth: 1)
-                                .cornerRadius(15, corners: [.allCorners])
-                        )
+                        .padding(10)
                         .background(Color.white)
-                        .cornerRadius(15, corners: [.allCorners])
-                        .frame(width: 150, height: 50)
+                        .cornerRadius(25, corners: .allCorners)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.black, lineWidth: 1)
+                        )
 
                         HStack {
                             NavigationLink(destination: SignInView(), isActive: $isShowingSignIn) {
@@ -70,7 +77,8 @@ struct ContentView: View {
                                     action: {
                                         isShowingSignIn = true
                                     },
-                                    backgroundColor: Color.green,
+                                    foregroundColor: .white,
+                                    backgroundColor: .green,
                                     text: "Sign In"
                                 )
                             }
@@ -80,7 +88,8 @@ struct ContentView: View {
                                     action: {
                                         isShowinSignUp = true
                                     },
-                                    backgroundColor: Color.white,
+                                    foregroundColor: .secondary,
+                                    backgroundColor: .white,
                                     text: "Sign Up"
                                 )
                             }

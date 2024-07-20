@@ -9,11 +9,18 @@ import SwiftUI
 
 public struct HeliButton: View {
     let action: () -> Void
+    let foregroundColor: Color
     let backgroundColor: Color
     let text: String
 
-    public init(action: @escaping () -> Void, backgroundColor: Color, text: String) {
+    public init(
+        action: @escaping () -> Void,
+        foregroundColor: Color,
+        backgroundColor: Color,
+        text: String
+    ) {
         self.action = action
+        self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
         self.text = text
     }
@@ -24,6 +31,7 @@ public struct HeliButton: View {
             label: {
                 Text(text)
                     .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(foregroundColor)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)

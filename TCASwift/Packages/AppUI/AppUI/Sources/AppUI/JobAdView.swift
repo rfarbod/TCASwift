@@ -1,6 +1,6 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by Farbod Rahiminik on 7/18/24.
 //
@@ -12,15 +12,14 @@ import SwiftUI
 
 struct JobAdView: View {
     private enum Constants {
-        static let padding: CGFloat = 15
-        static let spacing: CGFloat = 20
+        static let padding: CGFloat = 5
     }
 
     let jobAd: JobAd
 
     var body: some View {
         WithPerceptionTracking {
-            VStack(spacing: Constants.spacing) {
+            VStack {
                 ZStack(alignment: .bottomTrailing) {
                     WebImage(url: URL(string: jobAd.job.project.client.links.heroImage)) { image in
                         image.resizable()
@@ -31,33 +30,31 @@ struct JobAdView: View {
                     .indicator(.activity)
                     .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                    
+
                     Text("\(jobAd.earningsPerHour.amount) \(jobAd.earningsPerHour.currency)")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundStyle(.secondary)
                         .padding(Constants.padding)
                         .background(Color.white)
+                        .cornerRadius(15, corners: .topLeft)
                 }
 
-                HStack {
-                    Text(jobAd.statusText)
-                        .padding(.horizontal, Constants.padding)
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundStyle(jobAd.isOpen ? Color.green : Color.red)
+                HStack(spacing: 0) {
+                    Text("\(jobAd.statusText) • ")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(.purple)
+                    Text("\(jobAd.startHour)-\(jobAd.endHour)")
+                        .font(.system(size: 12, weight: .regular))
+                        .foregroundStyle(.purple)
                     Spacer()
                 }
+                .padding(Constants.padding)
 
                 HStack {
                     Text(jobAd.job.project.name)
-                        .font(.system(size: 20, weight: .bold))
-                        .padding(.horizontal, Constants.padding)
-                    Spacer()
-                }
-
-                HStack {
-                    Text("\(jobAd.startHour) - \(jobAd.endHour)")
-                        .font(.system(size: 20, weight: .bold))
-                        .padding(.horizontal, Constants.padding)
-                        .foregroundStyle(Color.blue)
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundStyle(.primary)
+                        .padding(Constants.padding)
                     Spacer()
                 }
 
