@@ -29,8 +29,6 @@ protocol RequestProtocol {
 extension RequestProtocol {
     var baseURL: String { baseUrl }
     var method: RequestMethod { .get }
-    var requestType: RequestType { .data }
-    var responseType: ResponseType { .json }
     var timeoutInterval: TimeInterval { 30.0 }
     var retryDelay: UInt64 { 1_000_000_000 }
 

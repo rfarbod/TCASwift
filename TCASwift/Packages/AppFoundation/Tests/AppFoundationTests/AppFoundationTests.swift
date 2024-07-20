@@ -18,7 +18,7 @@ final class AppFoundationTests: XCTestCase {
             guard var yesterdayDate = Calendar.current.date(byAdding: .day, value: -1, to: Date()) else { return }
             yesterdayDate = Calendar.current.startOfDay(for: yesterdayDate)
 
-            $0.date = yesterdayDate
+            $0.date = Date()
         }
     }
 
@@ -33,8 +33,6 @@ final class AppFoundationTests: XCTestCase {
 
         let sampleJob: JobAd = .init(
             id: "jobId1",
-            startAt: "",
-            endsAt: "",
             earningsPerHour: .init(currency: .euro, amount: 0),
             job: .init(
                 id: "jobId1",
@@ -49,7 +47,11 @@ final class AppFoundationTests: XCTestCase {
                     name: "",
                     client: .init(id: "", links: .init(heroImage: "", thumbImage: ""))
                 )
-            )
+            ),
+            isOpen: false,
+            startHour: "12:00",
+            endHour: "15:00",
+            statusText: ""
         )
 
         await store.send(.jobsRecieved(jobs: [sampleJob])) {
