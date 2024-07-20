@@ -16,7 +16,7 @@ struct JobAdView: View {
         static let spacing: CGFloat = 20
     }
 
-    let jobAd: JobAdDTO
+    let jobAd: JobAd
 
     var body: some View {
         WithPerceptionTracking {
@@ -54,9 +54,10 @@ struct JobAdView: View {
                 }
 
                 HStack {
-                    Text(jobAd.startHour)
+                    Text("\(jobAd.startHour) - \(jobAd.endHour)")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.horizontal, Constants.padding)
+                        .foregroundStyle(Color.blue)
                     Spacer()
                 }
 

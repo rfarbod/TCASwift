@@ -15,11 +15,17 @@ struct ContentView: View {
 
     var body: some View {
         WithPerceptionTracking {
-            VStack {
-                JobAdsView(store: store)
-            }
-            .onAppear {
-                store.send(.getJobs)
+            ZStack {
+                VStack {
+                    JobAdsView(store: store)
+                }
+                .onAppear {
+                    store.send(.getJobs)
+                }
+
+                HStack {
+                    Button(
+                }
             }
         }
     }

@@ -13,6 +13,8 @@
 		13BCED752C454BEF008AEB15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BCED742C454BEF008AEB15 /* ContentView.swift */; };
 		13BCED772C454BF1008AEB15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BCED762C454BF1008AEB15 /* Assets.xcassets */; };
 		13BCED7B2C454BF1008AEB15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */; };
+		13F34FFF2C4B4A5D009C52D6 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F34FFE2C4B4A5D009C52D6 /* SignInView.swift */; };
+		13F350012C4B4A6B009C52D6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F350002C4B4A6B009C52D6 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		13BCED762C454BF1008AEB15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13BCED782C454BF1008AEB15 /* TCASwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TCASwift.entitlements; sourceTree = "<group>"; };
 		13BCED7A2C454BF1008AEB15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		13F34FFE2C4B4A5D009C52D6 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		13F350002C4B4A6B009C52D6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				13BCED722C454BEF008AEB15 /* TCASwiftApp.swift */,
+				13F34FFE2C4B4A5D009C52D6 /* SignInView.swift */,
+				13F350002C4B4A6B009C52D6 /* SignUpView.swift */,
 				13BCED742C454BEF008AEB15 /* ContentView.swift */,
 				13BCED762C454BF1008AEB15 /* Assets.xcassets */,
 				13BCED782C454BF1008AEB15 /* TCASwift.entitlements */,
@@ -151,6 +157,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F350012C4B4A6B009C52D6 /* SignUpView.swift in Sources */,
+				13F34FFF2C4B4A5D009C52D6 /* SignInView.swift in Sources */,
 				13BCED752C454BEF008AEB15 /* ContentView.swift in Sources */,
 				13BCED732C454BEF008AEB15 /* TCASwiftApp.swift in Sources */,
 			);

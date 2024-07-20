@@ -25,7 +25,6 @@ public struct JobAdsView: View {
                             .onAppear {
                                 if index == store.jobAds.count - 1 {
                                     store.send(.goToPreviousDate)
-                                    store.send(.getJobs)
                                 }
                             }
                             .background(Color.white)

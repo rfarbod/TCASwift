@@ -35,7 +35,7 @@ public struct JobAd: Identifiable, Equatable {
     }
 
 
-    public static func == (lhs: JobAd rhs: JobAd) -> Bool {
+    public static func == (lhs: JobAd, rhs: JobAd) -> Bool {
         lhs.id == rhs.id
     }
 }
