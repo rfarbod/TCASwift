@@ -14,26 +14,6 @@ public struct JobAdDTO: Codable {
     public let earningsPerHour: Earning
     public let job: Job
 
-    public var isOpen: Bool {
-        let endDate: Date = ISO8601DateFormatter().date(from: endsAt) ?? .now
-        return endDate > .now
-    }
-
-    public var statusText: String {
-        return isOpen ? "SERVING" : "CLOSED"
-    }
-
-    public var startHour: String {
-        let startDate: Date = ISO8601DateFormatter().date(from: startAt) ?? .now
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour, .minute], from: startDate)
-        let hour = calendar.date(from: components)
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
-        return dateFormatter.string(from: hour ?? .now)
-    }
-
     enum CodingKeys: String, CodingKey {
         case id
         case startAt = "starts_at"
