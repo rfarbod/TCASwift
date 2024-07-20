@@ -6,8 +6,8 @@
 //
 
 import AppData
-import Foundation
 import ComposableArchitecture
+import Foundation
 
 @Reducer
 public struct JobReducer {

@@ -15,6 +15,8 @@ struct ContentView: View {
 
     @State private var isShowingSignIn = false
     @State private var isShowinSignUp = false
+    @State private var isShowingFilter = false
+    @State private var isShowingKart = false
 
     var body: some View {
         NavigationView {
@@ -31,7 +33,7 @@ struct ContentView: View {
                         HStack {
                             Button(
                                 action: {
-
+                                    isShowingFilter = true
                                 },
                                 label: {
                                     Text("Filter")
@@ -88,6 +90,9 @@ struct ContentView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $isShowingFilter) {
+            FilterView()
         }
     }
 }
