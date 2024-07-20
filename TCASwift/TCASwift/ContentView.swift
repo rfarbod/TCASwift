@@ -47,7 +47,7 @@ struct ContentView: View {
 
                             Button(
                                 action: {
-
+                                    isShowingKart = true
                                 },
                                 label: {
                                     Text("Kaart")
@@ -93,6 +93,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isShowingFilter) {
             FilterView()
+        }
+        .sheet(isPresented: $isShowingKart) {
+            KaartView()
         }
     }
 }
